@@ -1,0 +1,100 @@
+body{
+    background-image: url(https://as1.ftcdn.net/v2/jpg/01/27/44/70/1000_F_127447060_snPGCCrjRYdbpEnlSoAYnehnCt3ju0Dd.jpg);
+    background-size:cover;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #001f3f; 
+}
+
+.singinImg {
+    display: block;
+    background-color: #00b8d4;
+    height: 70px;
+    width: 500px;
+    margin: 100px auto 0px auto;
+    border: #001f3f 5px solid;
+    border-bottom: 0px;
+}
+    .singinImg > img {
+        width: 200px;
+        height: fit-content;
+        text-align: center;
+        margin-left: 130px;
+    }
+        #home {
+            display: inline-block;
+            position: relative;
+            left: 20px;
+            bottom: 19px;
+            color: #f8f8f8;
+            border: #f8f8f8 solid 2px;
+            padding: 5px 10px;
+        }
+
+.account {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border: #001f3f 5px solid;
+    height: 450px;
+    width: 500px;
+}
+.make {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: #001f3f 5px solid;
+    background-color: #f8f8f8;
+    height: 520px;
+    width: 500px;
+}
+
+#button {
+    color: #001f3f; 
+    display: block;
+    background-color: #0074a8;
+    margin: 20px auto 15px auto;
+    height: 50px;
+    width: 300px;
+    font-size: 25px;
+}
+#error {
+    margin-top: 5px;
+    color: 	rgb(255,0,0);
+}
+#Yes {
+    display: block;
+    background-color: #00b8d4;
+    margin: 50px auto 15px auto;
+    height: 50px;
+    width: 250px;
+    font-size: 35px;
+    color: black;
+}
+#terms {
+    height: 20px;
+    width: 20px;
+    margin: 0px;
+    position: relative;
+    top: 5px;
+}
+
+    h1 {
+        margin: 25px 0px 15px 0px;
+    }
+        input {
+            height: 25px;
+            width: 225px;
+        }
+             h3 {
+                display: block;
+                margin-top: 15px;
+                margin-bottom: 5px;
+                color: #001f3f; 
+            }
+                   h5 {
+                        margin: 10px 0px 5px 0px;
+                    }

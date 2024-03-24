@@ -1,0 +1,357 @@
+/* Coded by Corazon */
+/* CSS Nav, Body and Footer template, do not touch */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #001f3f; 
+}
+
+.navbar {
+    background-color: #00b8d4;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 200px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center; 
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff; 
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    text-decoration: underline;
+}
+
+.book-now-btn {
+    background-color: #0074a8;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.book-now-btn:hover {
+    background-color: #ffffff; 
+    color: #0074a8; 
+}
+
+.signin-btn {
+    padding: 5px 10px;
+    border: 2px solid #ffffff; 
+    border-radius: 5px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #0074a8; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 20px 20px; 
+    margin-top: 20px; 
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: smaller;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0; 
+    text-align: left; 
+}
+
+.footer-links li {
+    margin-bottom: 10px; 
+}
+
+.footer-links a {
+    color: #ffffff; 
+    text-decoration: none;
+}
+
+.contact-details {
+    margin: 0; 
+    text-align: right;
+}
+
+.company-logo img {
+    width: 250px; 
+    margin-top: -80px;
+}
+
+.social-media-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-media-icons a {
+    margin-left: 10px; 
+}
+
+.social-media-icons img {
+    height: 30px; 
+}
+
+.credit {
+    color: #f5f5f5; 
+    font-size: smaller;
+}
+
+
+/* CSS Nav, Body and Footer template, do not touch */
+
+/* --------------------- main content -------------------- */
+
+/* --------------------- Slider -------------------------- */
+.slider-container {
+    position: relative;
+    max-width: 80%; 
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 60px; 
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.slider-indicators {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+/* --------------------- Slider -------------------------- */
+
+/* --------------------- Products -------------------------- */
+.product-sections {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.product-sections h2 {
+    margin-bottom: 30px;
+}
+
+.product-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.product-box {
+    width: 300px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-box h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-box p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.product-box img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.book-now-btn {
+    background-color: #0074a8;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.book-now-btn:hover {
+    background-color: #00b8d4;
+    color: white;
+}
+
+/* --------------------- Products -------------------------- */
+
+/* --------------------- Why Us -------------------------- */
+.why-us-sections {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.description h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.photos {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.photo {
+    flex: 1;
+    text-align: center;
+}
+
+.photo img {
+    width: 40%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.photo p {
+    font-weight: bold;
+}
+
+/* --------------------- Why Us -------------------------- */
+
+/* --------------------- Testimonials -------------------------- */
+.testimonials-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.testimonial-box {
+    display: inline-block;
+    width: calc(25% - 40px);
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-box img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.testimonial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.initials {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.rating {
+    font-size: 20px;
+    color: gold;
+}
+
+.testimonial-text {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --------------------- Testimonials -------------------------- */

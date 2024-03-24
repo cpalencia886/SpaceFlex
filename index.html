@@ -1,0 +1,172 @@
+<!-- Coded by Corazon -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceFlex.</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="./Photos/logo_nav.png" alt="Co-working Space Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html" class="">About Us</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html" class="">Products</a></li>
+                <li><a href="contact.html" class="">Contact Us</a></li>
+                <li><a href="booking.html" class="book-now-btn">Book Now</a></li>
+                <li><a href="register.html" class="signin-btn">Sign in / Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <!-- Main content goes here -->
+        <!-- Slider -->
+        <section class="slider">
+            <div class="slider-container">
+                <img id="slider" src="" alt="Slider Image">
+                <div class="buttons">
+                    <button onclick="prev()">⟸</button>
+                    <button onclick="next()">⟹</button>
+                </div>
+            </div>
+            <div class="slider-indicators"></div>
+        </section>
+                
+        <!-- Featured Products -->
+        <section class="product-sections">
+            <h2>Our Spaces</h2>
+            <div class="product-boxes">
+                <div class="product-box">
+                    <h3>Private Office</h3>
+                    <p>Team size: 1-10</p>
+                    <img src="./Photos/private.jpg" alt="Private Office">
+                    <a href="products.html#PrivateOffice" class="book-now-btn">Learn more</a>
+                </div>
+                <div class="product-box">
+                    <h3>Hot Desk</h3>
+                    <p>Team size: 1-3</p>
+                    <img src="./Photos/hotdesk.jpg" alt="Hot Desk">
+                    <a href="products.html#HotDesk" class="book-now-btn">Learn more</a>
+                </div>
+                <div class="product-box">
+                    <h3>Event Room</h3>
+                    <p>Team size: 2-20</p>
+                    <img src="./Photos/meeting.jpg" alt="Meeting Space">
+                    <a href="products.html#EventRoom" class="book-now-btn">Learn more</a>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Why us -->
+        <section class="why-us-sections">
+            <div class="container">
+                <h2>Why Choose Us</h2>
+                <div class="content">
+                    <div class="description">
+                        <h3>Our Commitment</h3>
+                        <p>At SpaceFlex, we're dedicated to more than just providing workspace solutions. 
+                            We're committed to fostering a dynamic community, offering state-of-the-art amenities, 
+                            and delivering personalized services to enhance your work environment. Experience the difference 
+                            at SpaceFlex and elevate your productivity.</p>
+                    </div>
+                    <div class="photos">
+                        <div class="photo">
+                            <img src="./Photos/aesthetic.png" alt="Aesthetic">
+                            <p>Aesthetic</p>
+                        </div>
+                        <div class="photo">
+                            <img src="./Photos/savings.png" alt="Budget Friendly">
+                            <p>Budget Friendly</p>
+                        </div>
+                        <div class="photo">
+                            <img src="./Photos/clean.png" alt="Clean Environment">
+                            <p>Clean Environment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- testimonials -->
+        <section class="testimonials-section">
+            <h2>Testimonials</h2>
+            <div class="testimonial-box">
+                <div class="testimonial-content">
+                    <div class="testimonial-header">
+                        <div class="initials">J.S.</div>
+                    </div>
+                    <p class="testimonial-text">"SpaceFlex has truly revolutionized the way I work. 
+                        With its seamless online platform, I can easily find and book the perfect 
+                        workspace for my needs, whether it's a private room for focused sessions or a
+                         shared table for networking. The flexibility it offers is unmatched!"</p>
+                </div>
+            </div>
+        
+            <div class="testimonial-box">
+                <div class="testimonial-content">
+                    <div class="testimonial-header">
+                        <div class="initials">A.B.</div>
+                    </div>
+                    <p class="testimonial-text">"As a freelancer, finding a workspace that adapts to 
+                        my ever-changing schedule was always a challenge until I discovered SpaceFlex. 
+                        I love how I can book a workspace for just a few hours or an entire month, giving
+                         me the freedom to work on my terms. Thank you, SpaceFlex, for making coworking so convenient"</p>
+                </div>
+            </div>
+        
+            <div class="testimonial-box">
+                <div class="testimonial-content">
+                    <div class="testimonial-header">
+                        <div class="initials">C.D.</div>
+                    </div>
+                    <p class="testimonial-text">"SpaceFlex isn't just a workspace provider; 
+                        it's a community that fosters collaboration and innovation. 
+                        I've met some incredible professionals from diverse backgrounds while working here, 
+                        and the supportive environment has truly helped me thrive. Highly recommend it to anyone 
+                        looking for a dynamic coworking experience!"</p>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <p class="contact-details"> <b>Contact:</b> info@spaceflex.com <br>
+                                        <b> Phone:</b> 123-456-7890 <br>
+                                       <b>Address:</b> 456 Downtown Street <br>
+                                       Calgary, AB T78 9X1 <br>
+                                       Canada  
+                                    </p>
+        </div>
+        <div class="company-logo">
+            <a href="index.html"><img src="./Photos/logo_nav.png" alt="Company Logo"></a>
+        </div>
+        <div class="social-media-icons">
+            <a href="https://www.facebook.com/" target="_blank"><img src="./Photos/foot_fb.png" alt="Facebook"></a>
+            <a href="https://twitter.com/" target="_blank"><img src="./Photos/foot_tw.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="./Photos/foot_ig.png" alt="Instagram"></a>
+        </div>
+        <p class="credit">&copy; Group 2 - Cunanan, Mcdougall, Palencia – 2024</p>
+    </footer>
+    
+    <script src="index.js"></script>
+</body>
+</html>

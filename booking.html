@@ -1,0 +1,210 @@
+<!-- Coded by Corazon -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceFlex.</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="./Photos/logo_nav.png" alt="Co-working Space Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html" class="">About Us</a></li>
+                <li><a href="index.html" class="">Home</a></li>
+                <li><a href="products.html" class="">Products</a></li>
+                <li><a href="contact.html" class="">Contact Us</a></li>
+                <li><a href="booking.html" class="book-now-btn">Book Now</a></li>
+                <li><a href="register.html" class="signin-btn">Sign in / Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Booking Page</h2>
+    
+        <!-- Second Row: Fields -->
+        <div class="row fields">
+            <!-- User Info Fields -->
+            <div class="col">
+                <table>
+                    <tr>
+                        <td colspan="2" class="section-title"><b>User Info</b></td>
+                    </tr>
+                    <tr>
+                        <td>First Name *</td>
+                        <td><input type="text" id="firstName" name="firstName" required></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name *</td>
+                        <td><input type="text" id="lastName" name="lastName" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email *</td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td>Phone *</td>
+                        <td><input type="tel" id="phone" name="phone" required></td>
+                    </tr>
+                </table>
+            </div>
+    
+            <!-- Booking Info Fields -->
+            <div class="col">
+                <table>
+                    <tr>
+                        <td colspan="2" class="section-title"><b>Booking Info</b></td>
+                    </tr>
+
+                    <tr>
+                        <td>Address *</td>
+                        <td>
+                            <select id="address" name="address" required>
+                                <option value="">Please Select</option>
+                                <option value="address1">Address 1</option>
+                                <option value="address2">Address 2</option>
+                                <option value="address3">Address 3</option>
+                                <option value="address4">Address 4</option>
+                            </select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Select Product *</td>
+                        <td>
+                            <select id="product" name="product" required>
+                                <option value="">Please Select</option>
+                                <option value="hotDesk">Hot Desk</option>
+                                <option value="privateRoom">Private Room</option>
+                                <option value="eventRoom">Event Room</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Select Duration *</td>
+                        <td>
+                            <select id="duration" name="duration" required>
+                                <option value="">Please Select</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="hourly">Hourly</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Booking Date *</td>
+                        <td><input type="date" id="bookingDate" name="bookingDate" required></td>
+                    </tr>
+                    <tr>
+                        <td>Start Time *</td>
+                        <td><input type="time" id="startTime" name="startTime" required></td>
+                    </tr>
+                    <tr>
+                        <td>End Time *</td>
+                        <td><input type="time" id="endTime" name="endTime" required></td>
+                    </tr>
+                    <tr>
+                        <td>Team Count *</td>
+                        <td><input type="number" id="teamCount" name="teamCount" min="1" required></td>
+                    </tr>
+                </table>
+                <button id="submitButton" type="button">Submit</button>
+            </div>
+    
+            <!-- Order Summary Fields -->
+            <div class="col">
+                <table>
+                    <tr>
+                        <td colspan="2" class="section-title"><b>Order Summary</b></td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td><span id="nameSummary"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name:</td>
+                        <td><span id="lastNameSummary"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><span id="emailSummary"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td><span id="phoneSummary"></span></td>
+                    </tr>
+                    <tr>
+            <td>Address:</td>
+            <td><span id="addressSummary"></span></td>
+        </tr>
+                    <tr>
+                        <td>Product:</td>
+                        <td><span id="productSummary"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Duration:</td>
+                        <td><span id="durationSummary"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Date:</td>
+                        <td><span id="dateSummary"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Team Count:</td>
+                        <td><span id="teamCountSummary"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Hours:</td>
+                        <td><span id="totalHours"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Total Price:</td>
+                        <td>$<span id="totalPrice"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><button id="confirmButton">Confirm</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    
+
+    
+    
+    
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <p class="contact-details"> <b>Contact:</b> info@spaceflex.com <br>
+                                        <b> Phone:</b> 123-456-7890 <br>
+                                       <b>Address:</b> 456 Downtown Street <br>
+                                       Calgary, AB T78 9X1 <br>
+                                       Canada  
+                                    </p>
+        </div>
+        <div class="company-logo">
+            <a href="index.html"><img src="./Photos/logo_nav.png" alt="Company Logo"></a>
+        </div>
+        <div class="social-media-icons">
+            <a href="https://www.facebook.com/" target="_blank"><img src="./Photos/foot_fb.png" alt="Facebook"></a>
+            <a href="https://twitter.com/" target="_blank"><img src="./Photos/foot_tw.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="./Photos/foot_ig.png" alt="Instagram"></a>
+        </div>
+        <p class="credit">&copy; Group 2 - Cunanan, Mcdougall, Palencia – 2024</p>
+    </footer>
+    
+    <script src="booking.js"></script>
+</body>
+</html>

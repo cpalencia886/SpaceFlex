@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="./Photos/logo_nav.png" alt="Co-working Space Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="about.html" class="">About Us</a></li>
+                <li><a href="index.html" class="">Home</a></li>
+                <li><a href="products.html" class="">Products</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <li><a href="booking.html" class="book-now-btn">Book Now</a></li>
+                <li><a href="register.html" class="signin-btn">Sign in / Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h2>Address: </h2>
+        <p>
+            456 Downtown Street
+            Calgary, AB T78 9X1
+            Canada
+        </p>
+
+        <table>
+            <tr>
+                <td>
+                    <h2>Office Hours:</h2>
+                    <p><strong>Monday - Saturday:</strong> 7:00 am - 9:00 pm</p>
+                    <p><strong>Sunday</strong> 7:00 am - 5:00 pm</p>
+
+                </td>
+                <td>
+                    <h2>Contact:</h2>
+                    <p><strong>Email:</strong> info@spaceflex.com</p>
+                    <p><strong>Phone:</strong> 123-456-7890</p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Feedback Section -->
+        <h2>Feedback</h2>
+        <p id="feedbackMessage"></p>
+        <form id="feedbackForm" class="clientInfo">
+            <table>
+                <tr>
+                    <td>
+                        <label>Initials:</label>
+                        <br>
+                        <input type="text" id="initials" placeholder="Insert your name here...">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Comment:</label>
+                        <br>
+                        <textarea id="comment" cols="84" rows="10" placeholder="Insert comments here..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="submitFeedbackBtn">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <!-- Get In Touch Section -->
+        <h2>Get In Touch</h2>
+        <p id="getInTouchMessage"></p>
+        <form id="getInTouchForm" class="clientInfo">
+            <table>
+                <tr>
+                    <td>
+                        <label>Name:</label>
+                        <br>
+                        <input type="text" id="name" placeholder="Insert your name here...">
+                    </td>
+                    <td>
+                        <label>Email:</label>
+                        <br>
+                        <input type="text" id="email" placeholder="Insert your email here...">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>Questions:</label>
+                        <br>
+                        <textarea id="questions" cols="84" rows="10" placeholder="Insert comments here..."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="sendButton">Send</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <p class="contact-details"> <b>Contact:</b> info@spaceflex.com <br>
+                                        <b> Phone:</b> 123-456-7890 <br>
+                                       <b>Address:</b> 456 Downtown Street <br>
+                                       Calgary, AB T78 9X1 <br>
+                                       Canada  
+                                    </p>
+        </div>
+        <div class="company-logo">
+            <a href="index.html"><img src="./Photos/logo_nav.png" alt="Company Logo"></a>
+        </div>
+        <div class="social-media-icons">
+            <a href="https://www.facebook.com/" target="_blank"><img src="./Photos/foot_fb.png" alt="Facebook"></a>
+            <a href="https://twitter.com/" target="_blank"><img src="./Photos/foot_tw.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="./Photos/foot_ig.png" alt="Instagram"></a>
+        </div>
+        <p class="credit">&copy; Group 2 - Cunanan, Mcdougall, Palencia - 2024</p>
+    </footer>
+
+    <script src="contact.js"></script>
+</body>
+</html>
