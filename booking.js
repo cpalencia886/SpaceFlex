@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return totalTime;
     }
 
-    
-
     function getHourlyRate(space) {
         switch (space) {
             case 'Executive Suite':
@@ -223,6 +221,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
         bookingForm.classList.add('hidden');
         confirmationTable.classList.remove('hidden');
+
+        // Fetch request
+        fetch('http://localhost:7777/booking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                email,
+                phone,
+                address,
+                space,
+                duration,
+                bookingDate,
+                startTime,
+                endTime,
+                totalPrice,
+            }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Booking confirmation:', data);
+            // You can handle the response here if needed
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
     });
 
     function displayErrorMessage(message) {
