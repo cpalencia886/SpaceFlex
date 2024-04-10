@@ -1,60 +1,291 @@
+/* Coded by Corazon */
+/* CSS Nav, Body and Footer template, do not touch */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     color: #001f3f; 
 }
 
-.rooms {
-    display: table;
-    text-align: center;
-    margin: 100px auto 0px auto;
-    width: 450px;
-}
-        .rooms > h5 {
-            margin: 5px 0px 5px 0px;
-            left: 175px;
-            bottom: 130px;
-            font-size: larger;
-        }
-            #room {
-                display: inline-block;
-                text-align: center;
-                width: 500px;
-                height: 300px;
-            }
-.description {
-    display: block;
-    text-align: center;
-    margin: 25px auto 35px auto;
-    width: 400px;
-    font-size: larger;
-}
-.prices {
-    display: block;
-    text-align: center;
-    border-top: solid #001f3f 3px;
-    width: auto;
-    margin: 10px auto 10px auto;
-
-}
-    .V {
-        display: ruby-text;
-        text-align: center;
-    }
-        .V > h1 {
-            margin: 10px 10px;
-        }
-
-#link {
-    display: block;
-    background-color: #0074a8;
-    text-align: center;
-    font-size: large;
-    margin: 15px auto 75px auto;
-    height: 75px;
-    width: 150px;
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
-    padding: 10px 20px;
+.navbar {
+    background-color: #00b8d4;
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
 }
+
+.logo img {
+    width: 200px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center; 
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff; 
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    text-decoration: underline;
+}
+
+.signin-btn {
+    padding: 5px 10px;
+    border: 2px solid #ffffff; 
+    border-radius: 5px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #0074a8; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 20px 20px; 
+    margin-top: 20px; 
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: smaller;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0; 
+    text-align: left; 
+}
+
+.footer-links li {
+    margin-bottom: 10px; 
+}
+
+.footer-links a {
+    color: #ffffff; 
+    text-decoration: none;
+}
+
+.contact-details {
+    margin: 0; 
+    text-align: right;
+}
+
+.company-logo img {
+    width: 250px; 
+    margin-top: -80px;
+}
+
+.social-media-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-media-icons a {
+    margin-left: 10px; 
+}
+
+.social-media-icons img {
+    height: 30px; 
+}
+
+.credit {
+    color: #f5f5f5; 
+    font-size: smaller;
+}
+
+.book-now-btn {
+    background-color: #0074a8;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.book-now-btn:hover {
+    background-color: #00b8d4;
+    color: white;
+}
+
+
+/* CSS Nav, Body and Footer template, do not touch */
+
+
+/* --------------------- filters -------------------------- */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.filters {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.filters select, .filters button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.filters button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+/* Style for active state of dropdowns */
+.filters select:focus, .filters button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #007bff;
+}
+
+/* Style for active state of button */
+.filters button:active {
+    background-color: #0056b3;
+}
+/* --------------------- filters -------------------------- */
+
+
+/* --------------------- main -------------------------- */
+
+section {
+    width: 40%; 
+    margin: 20px auto; 
+    border: 2px solid #ccc; 
+    border-radius: 10px;
+    padding: 20px; 
+}
+
+.room {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.photo {
+    flex: 1;
+}
+
+section img {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+
+}
+
+.details {
+    flex: 2;
+    margin-left: 0px;
+}
+
+.details h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.details p {
+    margin-bottom: 5px;
+}
+
+.prices {
+    margin-top: 10px;
+}
+
+.prices .V h1 {
+    font-size: 18px;
+}
+
+.link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #00b8d4;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+}
+
+.link:hover {
+    background-color: #0074a8;
+}
+
+/* --------------------- main -------------------------- */
+
+
+/* --------------------- greyed button -------------------------- */
+
+#customizeBtn.disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+  }
+  
+  #customizeBtn.disabled:hover {
+    position: relative;
+  }
+  
+  #customizeBtn.disabled:hover::after {
+    content: attr(title);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 14px;
+    z-index: 1;
+  }
+  
+  #sortButton {
+    background-color: #0074a8;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+#sortButton:hover {
+    background-color: #00b8d4;
+    color: white;
+}
+  
+/* --------------------- greyed button -------------------------- */

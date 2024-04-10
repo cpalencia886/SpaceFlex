@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="products.css">
+    <script src="products.js"></script>
 </head>
 <body>
     <header>
@@ -24,68 +24,212 @@
         </nav>
     </header>
 
-    <div id="PrivateOffice" class="rooms">
-        <img id="room" src="https://as2.ftcdn.net/v2/jpg/02/26/40/71/1000_F_226407162_9boBRaWOySHw1JeW3Ij0nPrfTtZR8eX7.jpg">
-        <h1> Private Office </h1>
-        <h5> size: </h5>
-        <h5> Capacity: 1-10 people </h5> 
-        <h5> Includes: wifi access, Kitchen common area,<br>access to printers </h5>
-        <div class="description">
-            <p>
-                A big office space perfect for working with large group's or as a quiet space to get work done.
-                with a large center table with many seats and a Smart bord to show presintations or as a space
-                to write down ideas. This is the best option for an project or work related needs.
-            </p>
-        </div>
-    </div>
-    <div class="prices">
-        <div class="V">
-            <h1> 30$/hour or $850 monthly </h1>
-        </div>
-    </div>
-    <a href="booking.html"><button id="link"> Book Now! </button></a>
+    <!-------------------- Sorting ---------------------------------->
 
-    <div id="HotDesk" class="rooms">
-        <img id="room" src="https://as1.ftcdn.net/v2/jpg/02/15/83/54/1000_F_215835457_Ivg4ghpe9cqJpsQTyQE76nUaM1qScial.jpg">
-        <h1> Hot Desk </h1>
-        <h5> size: </h5>
-        <h5> Capacity: 1-3 people </h5> 
-        <h5> Includes: wifi access, Kitchen common area,<br>access to printers </h5>
-        <div class="description">
-            <p>
-                A perfect space to either to work in an office environment independently. On the other hand
-                A great area to have small group meeting wether that be a study group or online co-workers
-                Is great for small meetings or needing an area to work at.
-            </p>
-        </div>
-    </div>
-    <div class="prices">
-        <div class="V">
-            <h1> 5$/hour or $140 monthly </h1>
-        </div>
-    </div>
-    <a href="booking.html"><button id="link"> Book Now! </button></a>
+            <h1>Products</h1>
 
-    <div id="EventRoom" class="rooms">
-        <img id="room" src="https://as2.ftcdn.net/v2/jpg/03/62/36/71/1000_F_362367134_v6gChGOm8KWXFhCKBrCUGOlfuuwSxYPi.jpg">
-        <h1> Event Room </h1>
-        <h5> size: </h5>
-        <h5> Capacity: 2-20 people </h5> 
-        <h5> Includes: wifi access, Kitchen common area,<br>access to printers </h5>
-        <div class="description">
-            <p>
-                The immense room with space and seating for a numerous number guests.
-                This room is perfect for presenting and iteam to investers or as an 
-                place to discuss with a large team about thing big or small.
-            </p>
-        </div>
-    </div>
-    <div class="prices">
-        <div class="V">
-            <h1> 50$/hour or $1350 monthly </h1>
-        </div>
-    </div>
-    <a href="booking.html"><button id="link"> Book Now! </button></a>
+            <div class="filters">
+                <select id="sortByOptions">
+                    <option value="" disabled selected><b>Sort by</b></option>
+                    <optgroup label="Address">
+                        <option value="add1">Address 1</option>
+                        <option value="add2">Address 2</option>
+                        <option value="add3">Address 3</option>
+                        <option value="add4">Address 4</option>
+                    </optgroup>
+                    <optgroup label="Size">
+                        <option value="Petite">Petite (50-150 sqft)</option>
+                        <option value="Standard">Standard (151-300 sqft)</option>
+                        <option value="Oversized">Oversize (301-600 sqft)</option>
+                    </optgroup>
+                    <optgroup label="Capacity">
+                        <option value="Small">Small (&lt; 6)</option>
+                        <option value="Medium">Medium (&lt; 12)</option>
+                        <option value="Large">Large (&lt; 18)</option>
+                        <option value="XL">XL (&lt; 30)</option>
+                    </optgroup>
+                </select>
+                
+                
+                <button id="customizeBtn" class="disabled" title="You must be signed in to customize">Customize Booking</button>
+            </div>            
+
+    <!-------------------- Sorting ---------------------------------->
+
+        <!-------------------- Spaces ---------------------------------->
+        
+
+        
+        <section class="room" data-address="add1" data-size="Oversized" data-capacity="Medium">
+            <img src="./Photos/Exec.jpg" alt="Executive Suite">
+            <div class="room-details">
+                <h2>Executive Suite</h2>
+                <p>Location: Address 1</p>
+                <p>Square Footage: 350 sqft</p>
+                <p>Capacity: 8</p>
+                <p>Access: WiFi, Kitchen, Printer</p>
+                <div class="prices">
+                    <h3>$45/hour or $1000 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+        
+        <section class="room" data-address="add3" data-size="Petite" data-capacity="Small">
+            <img src="./Photos/sunlit.jpg" alt="Sunlit Studio">
+            <div class="room-details">
+                <h2>Sunlit Studio</h2>
+                <p>Location: Address 3</p>
+                <p>Square Footage: 150 sqft</p>
+                <p>Capacity: 4</p>
+                <p>Access: WiFi, Printer</p>
+                <div class="prices">
+                    <h3>$20/hour or $450 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+
+        <section class="room" data-address="all" data-size="Standard" data-capacity="Medium" id="PrivateOffice">
+            <img src="./Photos/private.jpg" alt="Private Room">
+            <div class="room-details">
+                <h2>Private Room</h2>
+                <p>Location: Address 1, Address 2, Address 3, Address 4</p>
+                <p>Square Footage: 200 sqft</p>
+                <p>Capacity: 10</p>
+                <p>Access: WiFi, Kitchen, Printer, Outlets</p>
+                <div class="prices">
+                    <h3>$25/hour or $600 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+        
+        
+        <section class="room" data-address="add2" data-size="Petite" data-capacity="Small">
+            <img src="./Photos/window.jpg" alt="Window Table">
+            <div class="room-details">
+                <h2>Window Table</h2>
+                <p>Location: Address 2</p>
+                <p>Square Footage: 50 sqft</p>
+                <p>Capacity: 1</p>
+                <p>Access: WiFi, Outlet</p>
+                <div class="prices">
+                    <h3>$15/hour or $350 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+
+        <section class="room" data-address="add4" data-size="Oversized" data-capacity="XL" id="EventRoom">
+            <img src="./Photos/meeting.jpg" alt="Event Room">
+            <div class="room-details">
+                <h2>Event Room</h2>
+                <p>Location: Address 4</p>
+                <p>Square Footage: 500 sqft</p>
+                <p>Capacity: 20</p>
+                <p>Access: WiFi, Kitchen, Printer</p>
+                <div class="prices">
+                    <h3>$50/hour or $1350 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+        
+        <section class="room" data-address="add3" data-size="Standard" data-capacity="Small">
+            <img src="./Photos/hive.jpg" alt="The Hive">
+            <div class="room-details">
+                <h2>The Hive</h2>
+                <p>Location: Address 3</p>
+                <p>Square Footage: 200 sqft</p>
+                <p>Capacity: 6</p>
+                <p>Access: WiFi, Outlet</p>
+                <div class="prices">
+                    <h3>$20/hour or $450 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+
+                
+        <section class="room" data-address="all" data-size="Petite" data-capacity="Small" id="HotDesk">
+            <img src="./Photos/hotdesk.jpg" alt="Hot Desk">
+            <div class="room-details">
+                <h2>Hot Desk</h2>
+                <p>Location: Address 1, Address 2, Address 3, Address 4</p>
+                <p>Square Footage: 80 sqft</p>
+                <p>Capacity: 3</p>
+                <p>Access: WiFi, Kitchen, Printer</p>
+                <div class="prices">
+                    <h3>$5/hour or $140 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+        
+        <section class="room" data-address="add2" data-size="Oversized" data-capacity="XL">
+            <img src="./Photos/gathering.jpg" alt="The Gathering">
+            <div class="room-details">
+                <h2>The Gathering</h2>
+                <p>Location: Address 2</p>
+                <p>Square Footage: 500 sqft</p>
+                <p>Capacity: 20</p>
+                <p>Access: WiFi, Kitchen, Printer</p>
+                <div class="prices">
+                    <h3>$120/hour or $3000 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+        
+        <section class="room" data-address="add1" data-size="Oversized" data-capacity="Large">
+            <img src="./Photos/bigstudio.jpg" alt="Big Studio">
+            <div class="room-details">
+                <h2>Big Studio</h2>
+                <p>Location: Address 1</p>
+                <p>Square Footage: 500 sqft</p>
+                <p>Capacity: 15</p>
+                <p>Access: WiFi, Kitchen, Printer, Studio Lights</p>
+                <div class="prices">
+                    <h3>$75/hour or $1800 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+        
+        <section class="room" data-address="add2" data-size="Petite" data-capacity="Small">
+            <img src="./Photos/ministudio.jpg" alt="Mini Studio">
+            <div class="room-details">
+                <h2>Mini Studio</h2>
+                <p>Location: Address 2</p>
+                <p>Square Footage: 150 sqft</p>
+                <p>Capacity: 4</p>
+                <p>Access: WiFi, Kitchen, Printer, Studio Lights, Soundproofing</p>
+                <div class="prices">
+                    <h3>$30/hour or $750 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+        
+        <section class="room" data-address="add4" data-size="Oversized" data-capacity="Medium">
+            <img src="./Photos/innov.jpg" alt="Innovation Hub">
+            <div class="room-details">
+                <h2>Innovation Hub</h2>
+                <p>Location: Address 4</p>
+                <p>Square Footage: 500 sqft</p>
+                <p>Capacity: 12</p>
+                <p>Access: WiFi, Kitchen, Printer, Whiteboard, Projector</p>
+                <div class="prices">
+                    <h3>$60/hour or $1400 monthly</h3>
+                </div>
+                <a href="booking.html" class="link">Book Now!</a>
+            </div>
+        </section>
+        
+
+        <!-------------------- Spaces ---------------------------------->
+
 
     <footer>
         <div class="footer-content">
@@ -112,5 +256,6 @@
         </div>
         <p class="credit">&copy; Group 2 - Cunanan, Mcdougall, Palencia - 2024</p>
     </footer>
+
 </body>
 </html>
