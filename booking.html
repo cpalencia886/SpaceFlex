@@ -24,157 +24,149 @@
         </nav>
     </header>
 
-    <main>
-        <h2>Booking Page</h2>
+
+        <h1>Booking</h1>
+
+        <main>
+        <!-- -------------form here------------- -->
+        <div id="container">
+            <!-- Booking Form Section -->
+            <section class="booking-form">
+                <h3>Book a Space!</h3>
+                <div id="message"></div>
+
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
     
-        <!-- Second Row: Fields -->
-        <div class="row fields">
-            <!-- User Info Fields -->
-            <div class="col">
+                <div class="form-group">
+                    <label for="space">Space *</label>
+                    <select id="space" name="space" required>
+                        <option value="" disabled selected>-- Select a space --</option>
+                        <option value="Private Room">Private Room</option>
+                        <option value="Hot Desk">Hot Desk</option>
+                        <option value="Event Room">Event Room</option>
+                        <option value="Executive Suite">Executive Suite</option>
+                        <option value="Sunlit Studio">Sunlit Studio</option>
+                        <option value="Window Table">Window Table</option>
+                        <option value="The Hive">The Hive</option>
+                        <option value="The Gathering">The Gathering</option>
+                        <option value="Big Studio">Big Studio</option>
+                        <option value="Mini Studio">Mini Studio</option>
+                        <option value="Innovation Hub">Innovation Hub</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="address">Location *</label>
+                    <select id="address" name="address" required>
+                        <option value="" disabled selected>-- Select Address --</option>
+                        <option value="Address 1">Address 1</option>
+                        <option value="Address 2">Address 2</option>
+                        <option value="Address 3">Address 3</option>
+                        <option value="Address 4">Address 4</option>
+                    </select>
+                </div>     
+    
+                <div class="form-group">
+                    <label for="duration">Duration *</label>
+                    <select id="duration" name="duration" required>
+                        <option value="" disabled selected>-- Select Duration --</option>
+                        <option value="Monthly">Monthly</option>
+                        <option value="Hourly">Hourly</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bookingDate">Booking Date *</label>
+                    <input type="date" id="bookingDate" name="bookingDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="startTime">Start Time *</label>
+                    <input type="time" id="startTime" name="startTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="endTime">End Time *</label>
+                    <input type="time" id="endTime" name="endTime" required>
+                </div>
+    
+                <button id="confirmButton" type="button">Confirm</button>
+            </section>
+            
+    
+            <!-- Confirmation Table (hidden by default) -->
+            <div id="confirmation-table" class="hidden">
                 <table>
                     <tr>
-                        <td colspan="2" class="section-title"><b>User Info</b></td>
+                        <td colspan="2"><h2>Your booking is confirmed!</h2></td>
                     </tr>
-                    <tr>
-                        <td>First Name *</td>
-                        <td><input type="text" id="firstName" name="firstName" required></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name *</td>
-                        <td><input type="text" id="lastName" name="lastName" required></td>
-                    </tr>
-                    <tr>
-                        <td>Email *</td>
-                        <td><input type="email" id="email" name="email" required></td>
-                    </tr>
-                    <tr>
-                        <td>Phone *</td>
-                        <td><input type="tel" id="phone" name="phone" required></td>
-                    </tr>
-                </table>
-            </div>
     
-            <!-- Booking Info Fields -->
-            <div class="col">
-                <table>
                     <tr>
-                        <td colspan="2" class="section-title"><b>Booking Info</b></td>
-                    </tr>
-
-                    <tr>
-                        <td>Address *</td>
-                        <td>
-                            <select id="address" name="address" required>
-                                <option value="">Please Select</option>
-                                <option value="address1">Address 1</option>
-                                <option value="address2">Address 2</option>
-                                <option value="address3">Address 3</option>
-                                <option value="address4">Address 4</option>
-                            </select>
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>Select Product *</td>
-                        <td>
-                            <select id="product" name="product" required>
-                                <option value="">Please Select</option>
-                                <option value="hotDesk">Hot Desk</option>
-                                <option value="privateRoom">Private Room</option>
-                                <option value="eventRoom">Event Room</option>
-                            </select>
-                        </td>
+                        <td id="b">First Name:</td>
+                        <td id="conf-firstName"></td>
                     </tr>
                     <tr>
-                        <td>Select Duration *</td>
-                        <td>
-                            <select id="duration" name="duration" required>
-                                <option value="">Please Select</option>
-                                <option value="monthly">Monthly</option>
-                                <option value="hourly">Hourly</option>
-                            </select>
-                        </td>
+                        <td id="b" >Last Name:</td>
+                        <td id="conf-lastName"></td>
                     </tr>
                     <tr>
-                        <td>Booking Date *</td>
-                        <td><input type="date" id="bookingDate" name="bookingDate" required></td>
+                        <td id="b">Email:</td>
+                        <td id="conf-email"></td>
                     </tr>
                     <tr>
-                        <td>Start Time *</td>
-                        <td><input type="time" id="startTime" name="startTime" required></td>
+                        <td id="b">Phone:</td>
+                        <td id="conf-phone"></td>
                     </tr>
                     <tr>
-                        <td>End Time *</td>
-                        <td><input type="time" id="endTime" name="endTime" required></td>
+                        <td id="b">Space:</td>
+                        <td id="conf-space"></td>
                     </tr>
                     <tr>
-                        <td>Team Count *</td>
-                        <td><input type="number" id="teamCount" name="teamCount" min="1" required></td>
+                        <td id="b">Address:</td>
+                        <td id="conf-address"></td>
                     </tr>
-                </table>
-                <button id="submitButton" type="button">Submit</button>
-            </div>
     
-            <!-- Order Summary Fields -->
-            <div class="col">
-                <table>
                     <tr>
-                        <td colspan="2" class="section-title"><b>Order Summary</b></td>
+                        <td id="b">Duration:</td>
+                        <td id="conf-duration"></td>
                     </tr>
                     <tr>
-                        <td>Name:</td>
-                        <td><span id="nameSummary"></span></td>
+                        <td id="b">Booking Date:</td>
+                        <td id="conf-bookingDate"></td>
                     </tr>
                     <tr>
-                        <td>Last Name:</td>
-                        <td><span id="lastNameSummary"></span></td>
+                        <td id="b">Total Time:</td>
+                        <td id="conf-totalTime"></td>
                     </tr>
+    
                     <tr>
-                        <td>Email:</td>
-                        <td><span id="emailSummary"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Phone:</td>
-                        <td><span id="phoneSummary"></span></td>
-                    </tr>
-                    <tr>
-            <td>Address:</td>
-            <td><span id="addressSummary"></span></td>
-        </tr>
-                    <tr>
-                        <td>Product:</td>
-                        <td><span id="productSummary"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Duration:</td>
-                        <td><span id="durationSummary"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Date:</td>
-                        <td><span id="dateSummary"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Team Count:</td>
-                        <td><span id="teamCountSummary"></span></td>
-                    </tr>
-
-                    <tr>
-                        <td>Total Hours:</td>
-                        <td><span id="totalHours"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Total Price:</td>
-                        <td>$<span id="totalPrice"></span></td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2"><button id="confirmButton">Confirm</button></td>
+                        <td id="b">Price:</td>
+                        <td id="conf-price"></td>
                     </tr>
                 </table>
+    
+                <p id="confirmation-message" >You will receive an email with your confirmation and booking details.</p>
+                <button onclick="window.location.href='booking.html'" id="back">Back</button>
             </div>
         </div>
+
+    <script src="booking.js"></script>
     </main>
-    
+          
+                <!-- -------------form here------------- -->      
+
 
     
     
@@ -205,6 +197,5 @@
         <p class="credit">&copy; Group 2 - Cunanan, Mcdougall, Palencia – 2024</p>
     </footer>
     
-    <script src="booking.js"></script>
 </body>
 </html>

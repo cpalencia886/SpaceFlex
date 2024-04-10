@@ -1,170 +1,247 @@
-// Coded by Corazon
+document.addEventListener('DOMContentLoaded', function() {
+    const confirmButton = document.getElementById('confirmButton');
+    const messageDiv = document.getElementById('message');
+    const bookingForm = document.querySelector('.booking-form');
+    const confirmationTable = document.getElementById('confirmation-table');
 
-document.addEventListener("DOMContentLoaded", function () {
+    function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
 
-    // Disable the confirm button by default
-    document.getElementById("confirmButton").disabled = true;
+    function calculateTotalTime(startTime, endTime) {
+        const start = new Date(`01/01/2000 ${startTime}`);
+        const end = new Date(`01/01/2000 ${endTime}`);
+        const totalTimeInMinutes = (end - start) / (1000 * 60);
+        const hours = Math.floor(totalTimeInMinutes / 60);
+        const minutes = totalTimeInMinutes % 60;
 
-    // Add event listener to the duration select field
-    document.getElementById("duration").addEventListener("change", function () {
-        var duration = this.value;
-        var startTimeField = document.getElementById("startTime");
-        var endTimeField = document.getElementById("endTime");
-        // Disable time fields if duration is monthly
-        if (duration === "monthly") {
-            startTimeField.disabled = true;
-            endTimeField.disabled = true;
-            startTimeField.value = ""; // Reset time fields
-            endTimeField.value = "";
-        } else {
-            startTimeField.disabled = false;
-            endTimeField.disabled = false;
+        let totalTime = '';
+        if (hours > 0) {
+            totalTime += `${hours} hour${hours > 1 ? 's' : ''}`;
         }
-    });
-
-    // Add event listener to the submit button
-    document.getElementById("submitButton").addEventListener("click", function () {
-        // Get all the input values
-        var firstName = document.getElementById("firstName").value;
-        var lastName = document.getElementById("lastName").value;
-        var email = document.getElementById("email").value;
-        var phone = document.getElementById("phone").value;
-        var address = document.getElementById("address").value;
-        var product = document.getElementById("product").value;
-        var duration = document.getElementById("duration").value;
-        var bookingDate = document.getElementById("bookingDate").value;
-        var startTime = document.getElementById("startTime").value;
-        var endTime = document.getElementById("endTime").value;
-        var teamCount = parseInt(document.getElementById("teamCount").value);
-
-        // Validate all fields are filled
-        if (firstName && lastName && email && phone && address && product && duration && bookingDate && teamCount) {
-            // Display user info in order summary
-            document.getElementById("nameSummary").textContent = firstName;
-            document.getElementById("lastNameSummary").textContent = lastName;
-            document.getElementById("emailSummary").textContent = email;
-            document.getElementById("phoneSummary").textContent = phone;
-            document.getElementById("addressSummary").textContent = address;
-            document.getElementById("productSummary").textContent = product;
-            document.getElementById("durationSummary").textContent = duration;
-            document.getElementById("dateSummary").textContent = bookingDate;
-            document.getElementById("teamCountSummary").textContent = teamCount;
-
-            // Calculate total price based on product, duration, and team count
-            var totalPrice = calculateTotalPrice(product, duration, teamCount, startTime, endTime);
-            document.getElementById("totalPrice").textContent = "$" + totalPrice.toFixed(2);
-
-            // Display total hours if duration is hourly
-            var totalHoursSpan = document.getElementById("totalHours");
-            if (duration === "hourly") {
-                var hours = hoursBetween(startTime, endTime);
-                totalHoursSpan.textContent = hours.toFixed(2);
-            } else {
-                totalHoursSpan.textContent = "----"; // Display "----" if duration is monthly
-            }
-
-            // Remove red borders from all fields if they are filled
-            removeRedBorders();
-
-            // Enable the confirm button
-            document.getElementById("confirmButton").disabled = false;
-
-            // To store booking details
-            var bookingDetails = {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                phone: phone,
-                address: address,
-                product: product,
-                duration: duration,
-                bookingDate: bookingDate,
-                startTime: startTime,
-                endTime: endTime,
-                teamCount: teamCount
-            };
-
-            // Get existing bookings from local storage or initialize an empty array if no bookings exist
-            var existingBookings = JSON.parse(localStorage.getItem('bookings')) || [];
-
-            // Add the new booking to the array of existing bookings
-            existingBookings.push(bookingDetails);
-
-            // Convert the array of bookings to a JSON string
-            var bookingsJSON = JSON.stringify(existingBookings);
-
-            // Save the updated array of bookings to local storage
-            localStorage.setItem('bookings', bookingsJSON);
-        } else {
-            // Add red borders to fields with missing input
-            addRedBorders(firstName, "firstName");
-            addRedBorders(lastName, "lastName");
-            addRedBorders(email, "email");
-            addRedBorders(phone, "phone");
-            addRedBorders(address, "address");
-            addRedBorders(product, "product");
-            addRedBorders(duration, "duration");
-            addRedBorders(bookingDate, "bookingDate");
-            addRedBorders(teamCount, "teamCount");
-
-            alert("Please fill in all fields.");
+        if (minutes > 0) {
+            totalTime += `${hours > 0 ? ' ' : ''}${minutes} min${minutes > 1 ? 's' : ''}`;
         }
-    });
+        return totalTime;
+    }
 
-    // Add event listener to the confirm button
-    document.getElementById("confirmButton").addEventListener("click", function () {
-        // Display confirmation message
-        console.log("Order received, please wait for the confirmation email!");
-        alert("Order received, please wait for the confirmation email!");
-    });
+    
 
-    // Function to add red border to fields with missing input
-    function addRedBorders(inputValue, inputId) {
-        if (!inputValue) {
-            document.getElementById(inputId).classList.add("missing-input");
+    function getHourlyRate(space) {
+        switch (space) {
+            case 'Executive Suite':
+                return 45;
+            case 'Sunlit Studio':
+                return 20;
+            case 'Private Room':
+                return 25;
+            case 'Window Table':
+                return 15;
+            case 'Event Room':
+                return 50;
+            case 'The Hive':
+                return 20;
+            case 'Hot Desk':
+                return 5;
+            case 'The Gathering':
+                return 120;
+            case 'Big Studio':
+                return 75;
+            case 'Mini Studio':
+                return 30;
+            case 'Innovation Hub':
+                return 60;
+            default:
+                return 0;
         }
     }
 
-    // Function to remove red borders from all fields
-    function removeRedBorders() {
-        var inputs = document.querySelectorAll("input, select");
-        inputs.forEach(function (input) {
-            input.classList.remove("missing-input");
+    function calculateHourlyPrice(hourlyRate, totalTime) {
+        const hours = parseInt(totalTime.split(' ')[0]);
+        return `$${hourlyRate * hours}`;
+    }
+
+    function getMonthlyRate(space) {
+        switch (space) {
+            case 'Executive Suite':
+                return '$1000';
+            case 'Sunlit Studio':
+                return '$450';
+            case 'Private Room':
+                return '$600';
+            case 'Window Table':
+                return '$350';
+            case 'Event Room':
+                return '$1350';
+            case 'The Hive':
+                return '$450';
+            case 'Hot Desk':
+                return '$140';
+            case 'The Gathering':
+                return '$3000';
+            case 'Big Studio':
+                return '$1800';
+            case 'Mini Studio':
+                return '$750';
+            case 'Innovation Hub':
+                return '$1400';
+            default:
+                return '$0';
+        }
+    }
+
+    function updateAddressOptions(space) {
+        const addressDropdown = document.getElementById('address');
+        const availableAddresses = new Set();
+
+        switch (space) {
+            case 'Executive Suite':
+                availableAddresses.add('Address 1');
+                break;
+            case 'Sunlit Studio':
+                availableAddresses.add('Address 3');
+                break;
+            case 'Private Room':
+                availableAddresses.add('Address 1');
+                availableAddresses.add('Address 2');
+                availableAddresses.add('Address 3');
+                availableAddresses.add('Address 4');
+                break;
+            case 'Window Table':
+                availableAddresses.add('Address 2');
+                break;
+            case 'Event Room':
+                availableAddresses.add('Address 4');
+                break;
+            case 'The Hive':
+                availableAddresses.add('Address 3');
+                break;
+            case 'Hot Desk':
+                availableAddresses.add('Address 1');
+                availableAddresses.add('Address 2');
+                availableAddresses.add('Address 3');
+                availableAddresses.add('Address 4');
+                break;
+            case 'The Gathering':
+                availableAddresses.add('Address 2');
+                break;
+            case 'Big Studio':
+                availableAddresses.add('Address 1');
+                break;
+            case 'Mini Studio':
+                availableAddresses.add('Address 2');
+                break;
+            case 'Innovation Hub':
+                availableAddresses.add('Address 4');
+                break;
+            default:
+                break;
+        }
+
+        addressDropdown.innerHTML = '<option value="" disabled selected>-- Select Address --</option>';
+        availableAddresses.forEach(address => {
+            const option = document.createElement('option');
+            option.textContent = address;
+            option.value = address;
+            addressDropdown.appendChild(option);
         });
     }
 
-    // Function to calculate total price based on product, duration, team count, and hours between start and end time
-    function calculateTotalPrice(product, duration, teamCount, startTime, endTime) {
-        var price;
-        if (duration === "hourly") {
-            if (product === "hotDesk") {
-                price = 5; // Hourly rate for hot desk is $5
-            } else if (product === "privateRoom") {
-                price = 30;
-            } else if (product === "eventRoom") {
-                price = 50;
+    document.getElementById('space').addEventListener('change', function() {
+        const space = this.value;
+        updateAddressOptions(space);
+    });
+
+    confirmButton.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const space = document.getElementById('space').value;
+        const duration = document.getElementById('duration').value;
+        const bookingDate = document.getElementById('bookingDate').value;
+        const startTime = document.getElementById('startTime').value;
+        const endTime = document.getElementById('endTime').value;
+
+        const inputFields = document.querySelectorAll('.form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"]');
+        inputFields.forEach(input => {
+            input.style.borderColor = '';
+        });
+
+        const dropdowns = document.querySelectorAll('.form-group select');
+        let isError = false;
+
+        inputFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.style.borderColor = 'red';
+                isError = true;
             }
-            // Calculate total price for hourly option based on duration, team count, and hours between start and end time
-            var hours = hoursBetween(startTime, endTime);
-            return price * hours;
-        } else if (duration === "monthly") {
-            if (product === "hotDesk") {
-                price = 140; // Monthly rate for hot desk is $140
-            } else if (product === "privateRoom") {
-                price = 850;
-            } else if (product === "eventRoom") {
-                price = 1350;
+        });
+
+        dropdowns.forEach(dropdown => {
+            if (!dropdown.value) {
+                dropdown.style.borderColor = 'red';
+                isError = true;
             }
-            // Return the price for the monthly option (without considering team count)
-            return price;
+        });
+
+        if (isError) {
+            displayErrorMessage("Please fill out all fields.");
+            return;
         }
+
+        if (!validateEmail(email)) {
+            displayErrorMessage("Please enter a valid email address.");
+            return;
+        }
+
+        let totalPrice = '';
+        let totalTime = '';
+        if (duration !== 'Monthly') {
+            totalTime = calculateTotalTime(startTime, endTime);
+            const hourlyRate = getHourlyRate(space);
+            totalPrice = calculateHourlyPrice(hourlyRate, totalTime);
+        } else {
+            totalTime = '---';
+            totalPrice = getMonthlyRate(space);
+        }
+
+        document.getElementById('conf-firstName').textContent = firstName;
+        document.getElementById('conf-lastName').textContent = lastName;
+        document.getElementById('conf-email').textContent = email;
+        document.getElementById('conf-phone').textContent = phone;
+        document.getElementById('conf-address').textContent = address;
+        document.getElementById('conf-space').textContent = space;
+        document.getElementById('conf-duration').textContent = duration;
+        document.getElementById('conf-bookingDate').textContent = bookingDate;
+        document.getElementById('conf-totalTime').textContent = totalTime;
+        document.getElementById('conf-price').textContent = totalPrice;
+
+        bookingForm.classList.add('hidden');
+        confirmationTable.classList.remove('hidden');
+    });
+
+    function displayErrorMessage(message) {
+        messageDiv.textContent = message;
+        messageDiv.style.color = 'red';
     }
 
-    // Function to calculate the number of hours between two time strings
-    function hoursBetween(startTime, endTime) {
-        var start = new Date("2024-03-14 " + startTime);
-        var end = new Date("2024-03-14 " + endTime);
-        var hours = (end - start) / 1000 / 60 / 60; // Convert milliseconds to hours
-        return hours;
-    }
+    document.getElementById('duration').addEventListener('change', function() {
+        const duration = this.value;
+        const startTimeInput = document.getElementById('startTime');
+        const endTimeInput = document.getElementById('endTime');
+        if (duration === 'Monthly') {
+            startTimeInput.value = '';
+            endTimeInput.value = '';
+            startTimeInput.disabled = true;
+            endTimeInput.disabled = true;
+        } else {
+            startTimeInput.disabled = false;
+            endTimeInput.disabled = false;
+        }
+    });
 });
