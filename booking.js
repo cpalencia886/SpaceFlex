@@ -208,6 +208,27 @@ document.addEventListener('DOMContentLoaded', function() {
             totalPrice = getMonthlyRate(space);
         }
 
+        const bookingDetails = {
+            firstName,
+            lastName,
+            email,
+            phone,
+            address,
+            space,
+            duration,
+            bookingDate,
+            startTime,
+            endTime,
+            totalPrice,
+        };
+
+        // Retrieve existing bookings from local storage
+        let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+        // Add new booking to the array
+        bookings.push(bookingDetails);
+        // Store updated bookings array in local storage
+        localStorage.setItem('bookings', JSON.stringify(bookings));
+
         document.getElementById('conf-firstName').textContent = firstName;
         document.getElementById('conf-lastName').textContent = lastName;
         document.getElementById('conf-email').textContent = email;
@@ -222,25 +243,16 @@ document.addEventListener('DOMContentLoaded', function() {
         bookingForm.classList.add('hidden');
         confirmationTable.classList.remove('hidden');
 
+        // Reset form after submission
+        bookingForm.reset();
+
         // Fetch request
         fetch('http://localhost:7777/booking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                firstName,
-                lastName,
-                email,
-                phone,
-                address,
-                space,
-                duration,
-                bookingDate,
-                startTime,
-                endTime,
-                totalPrice,
-            }),
+            body: JSON.stringify(bookingDetails),
         })
         .then(response => {
             if (!response.ok) {
@@ -250,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             console.log('Booking confirmation:', data);
-            // You can handle the response here if needed
+            
         })
         .catch(error => {
             console.error('Fetch error:', error);
