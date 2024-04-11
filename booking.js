@@ -222,11 +222,11 @@ document.addEventListener('DOMContentLoaded', function() {
             totalPrice,
         };
 
-        // Retrieve existing bookings from local storage
+
         let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
-        // Add new booking to the array
+
         bookings.push(bookingDetails);
-        // Store updated bookings array in local storage
+
         localStorage.setItem('bookings', JSON.stringify(bookings));
 
         document.getElementById('conf-firstName').textContent = firstName;
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
         confirmationTable.classList.remove('hidden');
 
         // Fetch request
-        fetch('https://spaceflex-backend.onrender.com', {
+        fetch('https://sfbackend-ygsq.onrender.com/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -259,7 +259,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             console.log('Booking confirmation:', data);
-            // You can handle the response here if needed
         })
         .catch(error => {
             console.error('Fetch error:', error);
