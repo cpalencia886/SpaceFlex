@@ -243,11 +243,8 @@ document.addEventListener('DOMContentLoaded', function() {
         bookingForm.classList.add('hidden');
         confirmationTable.classList.remove('hidden');
 
-        // Reset form after submission
-        bookingForm.reset();
-
         // Fetch request
-        fetch('http://localhost:7777/booking', {
+        fetch('https://spaceflex-backend.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -262,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             console.log('Booking confirmation:', data);
-            
+            // You can handle the response here if needed
         })
         .catch(error => {
             console.error('Fetch error:', error);
