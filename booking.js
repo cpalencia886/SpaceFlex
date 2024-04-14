@@ -1,3 +1,4 @@
+let bookingbookingResult;
 document.addEventListener('DOMContentLoaded', function() {
     const confirmButton = document.getElementById('confirmButton');
     const messageDiv = document.getElementById('message');
@@ -151,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateAddressOptions(space);
     });
 
-    confirmButton.addEventListener('click', function(event) {
+    confirmButton.addEventListener('click', async function(event) {
         event.preventDefault();
 
         const firstName = document.getElementById('firstName').value;
@@ -197,16 +198,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        let totalPrice = '';
-        let totalTime = '';
-        if (duration !== 'Monthly') {
-            totalTime = calculateTotalTime(startTime, endTime);
-            const hourlyRate = getHourlyRate(space);
-            totalPrice = calculateHourlyPrice(hourlyRate, totalTime);
-        } else {
-            totalTime = '---';
-            totalPrice = getMonthlyRate(space);
-        }
+        //let totalPrice = '';
+        // let totalTime = '';
+        // if (duration !== 'Monthly') {
+        //     totalTime = calculateTotalTime(startTime, endTime);
+        //     const hourlyRate = getHourlyRate(space);
+        //     totalPrice = calculateHourlyPrice(hourlyRate, totalTime);
+        // } else {
+        //     totalTime = '---';
+        //     totalPrice = getMonthlyRate(space);
+        // }
 
         const bookingDetails = {
             firstName,
@@ -218,33 +219,12 @@ document.addEventListener('DOMContentLoaded', function() {
             duration,
             bookingDate,
             startTime,
-            endTime,
-            totalPrice,
+            endTime
         };
 
-
-        let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
-
-        bookings.push(bookingDetails);
-
-        localStorage.setItem('bookings', JSON.stringify(bookings));
-
-        document.getElementById('conf-firstName').textContent = firstName;
-        document.getElementById('conf-lastName').textContent = lastName;
-        document.getElementById('conf-email').textContent = email;
-        document.getElementById('conf-phone').textContent = phone;
-        document.getElementById('conf-address').textContent = address;
-        document.getElementById('conf-space').textContent = space;
-        document.getElementById('conf-duration').textContent = duration;
-        document.getElementById('conf-bookingDate').textContent = bookingDate;
-        document.getElementById('conf-totalTime').textContent = totalTime;
-        document.getElementById('conf-price').textContent = totalPrice;
-
-        bookingForm.classList.add('hidden');
-        confirmationTable.classList.remove('hidden');
-
         // Fetch request
-        fetch('https://sfbackend-ygsq.onrender.com/register', {
+        // TODO: update the url
+        bookingResult = await fetch('http://localhost:3000/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -257,12 +237,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             return response.json();
         })
-        .then(data => {
-            console.log('Booking confirmation:', data);
-        })
-        .catch(error => {
-            console.error('Fetch error:', error);
-        });
+
+        console.log(bookingResult);
+
+        // let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+
+        // bookings.push(bookingDetails);
+
+        // localStorage.setItem('bookings', JSON.stringify(bookings));
+
+        document.getElementById('conf-firstName').textContent = bookingResult.firstName;
+        document.getElementById('conf-lastName').textContent = bookingResult.lastName;
+        document.getElementById('conf-email').textContent = bookingResult.email;
+        document.getElementById('conf-phone').textContent = bookingResult.phone;
+        document.getElementById('conf-address').textContent = bookingResult.address;
+        document.getElementById('conf-space').textContent = bookingResult.space;
+        document.getElementById('conf-duration').textContent = bookingResult.duration;
+        document.getElementById('conf-bookingDate').textContent = bookingResult.bookingDate;
+        document.getElementById('conf-totalTime').textContent = bookingResult.totalTime;
+        document.getElementById('conf-price').textContent = bookingResult.totalPrice;
+
+        bookingForm.classList.add('hidden');
+        confirmationTable.classList.remove('hidden');
     });
 
     function displayErrorMessage(message) {
