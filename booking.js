@@ -1,4 +1,5 @@
-let bookingbookingResult;
+let bookingResult;
+
 document.addEventListener('DOMContentLoaded', function() {
     const confirmButton = document.getElementById('confirmButton');
     const messageDiv = document.getElementById('message');
@@ -10,22 +11,22 @@ document.addEventListener('DOMContentLoaded', function() {
         return regex.test(email);
     }
 
-    function calculateTotalTime(startTime, endTime) {
-        const start = new Date(`01/01/2000 ${startTime}`);
-        const end = new Date(`01/01/2000 ${endTime}`);
-        const totalTimeInMinutes = (end - start) / (1000 * 60);
-        const hours = Math.floor(totalTimeInMinutes / 60);
-        const minutes = totalTimeInMinutes % 60;
+    // function calculateTotalTime(startTime, endTime) {
+    //     const start = new Date(`01/01/2000 ${startTime}`);
+    //     const end = new Date(`01/01/2000 ${endTime}`);
+    //     const totalTimeInMinutes = (end - start) / (1000 * 60);
+    //     const hours = Math.floor(totalTimeInMinutes / 60);
+    //     const minutes = totalTimeInMinutes % 60;
 
-        let totalTime = '';
-        if (hours > 0) {
-            totalTime += `${hours} hour${hours > 1 ? 's' : ''}`;
-        }
-        if (minutes > 0) {
-            totalTime += `${hours > 0 ? ' ' : ''}${minutes} min${minutes > 1 ? 's' : ''}`;
-        }
-        return totalTime;
-    }
+    //     let totalTime = '';
+    //     if (hours > 0) {
+    //         totalTime += `${hours} hour${hours > 1 ? 's' : ''}`;
+    //     }
+    //     if (minutes > 0) {
+    //         totalTime += `${hours > 0 ? ' ' : ''}${minutes} min${minutes > 1 ? 's' : ''}`;
+    //     }
+    //     return totalTime;
+    // }
 
     function getHourlyRate(space) {
         switch (space) {
@@ -198,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        //let totalPrice = '';
+        // let totalPrice = '';
         // let totalTime = '';
         // if (duration !== 'Monthly') {
         //     totalTime = calculateTotalTime(startTime, endTime);
@@ -219,7 +220,9 @@ document.addEventListener('DOMContentLoaded', function() {
             duration,
             bookingDate,
             startTime,
-            endTime
+            endTime,
+            // totalTime,
+            // totalPrice, 
         };
 
         // Fetch request
@@ -236,16 +239,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('Network response was not ok');
             }
             return response.json();
-        })
+        });
 
         console.log(bookingResult);
 
-        // let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
-
-        // bookings.push(bookingDetails);
-
-        // localStorage.setItem('bookings', JSON.stringify(bookings));
-
+        // Display confirmation details
         document.getElementById('conf-firstName').textContent = bookingResult.firstName;
         document.getElementById('conf-lastName').textContent = bookingResult.lastName;
         document.getElementById('conf-email').textContent = bookingResult.email;
