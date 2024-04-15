@@ -7,11 +7,11 @@
     <link rel='stylesheet' href="register.css">
 </head>
 <body>
-    <div class="singinImg">
+    <div class="singinImg" id="W">
         <img src="./Photos/logo_nav.png" alt="Company Logo">
         <a href="index.html" id="home"> Return home </a>
     </div>
-    <div class="make">
+    <div class="make2">
         <h1> Create an account </h1>
         <h3> Enter in a Username: </h3>
         <input type="text" id="username">
@@ -21,10 +21,13 @@
         <input type="password" id="password" pattern=".{8,}">
         <h3> Confirm your password: </h3>
         <input type="password" id="passwordComfirm">
-        <h5> By Checking this box you agree to our terms and services =>  <input id="terms" type="checkbox"></label>
+        <h5> new owner =>  <input id="owner" type="checkbox"></label> 
+        <h5> new employe => <input id="employe" type="checkbox"></label> 
+        <h3> Enter in your ID: </h3>
+        <input type="text" id="id">
 
         <h3 for="button" id="error"></h3>
-        <input type="button" id="button" value="Confirm" onclick=" MakeANewAccount();"/>
+        <input type="button" id="button" value="Confirm" onclick=" newworker();"/>
         <script src='register.js'></script>
     </form>
     </div>

@@ -15,6 +15,9 @@ body{
     border: #001f3f 5px solid;
     border-bottom: 0px;
 }
+#W {
+    margin: 75px auto 0px auto;
+}
     .singinImg > img {
         width: 200px;
         height: fit-content;
@@ -51,8 +54,18 @@ body{
     height: 520px;
     width: 500px;
 }
+.make2 {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: #001f3f 5px solid;
+    background-color: #f8f8f8;
+    height: 580px;
+    width: 500px;
+}
 
-#button {
+#button{
     color: #001f3f; 
     display: block;
     background-color: #0074a8;
@@ -74,7 +87,7 @@ body{
     font-size: 35px;
     color: black;
 }
-#terms {
+#terms, #owner, #employe {
     height: 20px;
     width: 20px;
     margin: 0px;
