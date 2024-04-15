@@ -117,7 +117,7 @@ function newworker() {
                             stat: 1
                         }
                         localStorage.setItem("Accounts", Account)
-                        window.location.href = 'owner.html';
+                        window.location.href = 'conmaked.html';
                     }
                     else if(action == 1) {
                         document.getElementById("AccUserName").style.border = "5px solid rgb(255,0,0)";
