@@ -1,14 +1,20 @@
-
-
 //Login to an account
 function Login() {
     let LoginAccount = document.getElementById("AccUserName").value;
     let LoginPassword = document.getElementById("AccPassword").value;
 
-    action = '/reguster'
-    if(action == 1)
-    {
-        window.location.href = 'confirm.html'; 
+    let x =localStorage.getItem("Accounts")
+
+    if(LoginAccount == x.Account || LoginAccount == x.Acc_email)
+    { 
+        let y = x.passsword;
+        if(x.stat == 1) {
+            window.location.href = 'owner.html'; 
+        }
+        else if(LoginPassword = y)
+        {
+            window.location.href = 'confirm.html'; 
+        }
     }
     else {
         LoginError(1);
@@ -38,8 +44,14 @@ function MakeANewAccount() {
                         document.getElementById("password").style.border = "unset";
                         document.getElementById("passwordComfirm").style.border = "unset";
                         
-                            action= "/makeanew";
-                            window.location.href = 'conmaked.html'; 
+                        let Account = {
+                            account: username,
+                            Acc_email: email,
+                            Acc_passsword: passsword,
+                        }
+                        localStorage.setItem("Accounts", Account)
+                        window.location.href = 'conmaked.html';
+
                     }
                     else if(action == 1) {
                         document.getElementById("AccUserName").style.border = "5px solid rgb(255,0,0)";
@@ -81,6 +93,7 @@ function newworker() {
     const email = document.getElementById("email").value;
     const passsword = document.getElementById("password").value;
     const ConPassword = document.getElementById("passwordComfirm").value;
+    const ID = document.getElementById("id").value
     var emailCheck = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     // for an owner
@@ -96,9 +109,15 @@ function newworker() {
                         document.getElementById("password").style.border = "unset";
                         document.getElementById("passwordComfirm").style.border = "unset";
                         
-                        const stat = 1;
-                            action= "/makeanew";
-                            window.location.href = 'conmaked.html'; 
+                                     
+                        let Account = {
+                            account: username,
+                            Acc_email: email,
+                            Acc_passsword: passsword,
+                            stat: 1
+                        }
+                        localStorage.setItem("Accounts", Account)
+                        window.location.href = 'owner.html';
                     }
                     else if(action == 1) {
                         document.getElementById("AccUserName").style.border = "5px solid rgb(255,0,0)";
@@ -141,8 +160,14 @@ function newworker() {
                         document.getElementById("password").style.border = "unset";
                         document.getElementById("passwordComfirm").style.border = "unset";
                         
-                            action= "/makeanew";
-                            window.location.href = 'conmaked.html'; 
+                                         
+                        let Account = {
+                            account: username,
+                            Acc_email: email,
+                            Acc_passsword: passsword,
+                        }
+                        localStorage.setItem("Accounts", Account)
+                        window.location.href = 'conmaked.html';
                     }
                     else if(action == 1) {
                         document.getElementById("AccUserName").style.border = "5px solid rgb(255,0,0)";
@@ -194,6 +219,3 @@ function LoginError(error) {
         document.getElementById("AccPassword").style.border = "unset";
     }
 }
-
-
-
