@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #001f3f; 
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #00b8d4;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 200px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff; 
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    text-decoration: underline;
+}
+
+.book-now-btn {
+    background-color: #0074a8;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.book-now-btn:hover {
+    background-color: #00b8d4;
+    color: white;
+}
+
+.signin-btn {
+    padding: 5px 10px;
+    border: 2px solid #ffffff; 
+    border-radius: 5px;
+}
+
+
+.office-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#no-office-message {
+    color: black; /* or any other color */
+    font-weight: bold; /* or any other styles you want */
+    /* Add any other styles as needed */
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.listing {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #0074a8; 
+    color: #ffffff; 
+    text-align: center;
+    padding: 20px 20px; 
+    margin-top: 20px; 
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: smaller;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0; 
+    text-align: left; 
+}
+
+.footer-links li {
+    margin-bottom: 10px; 
+}
+
+.footer-links a {
+    color: #ffffff; 
+    text-decoration: none;
+}
+
+.contact-details {
+    margin: 0; 
+    text-align: right;
+}
+
+.company-logo img {
+    width: 250px; 
+    margin-top: -80px;
+}
+
+.social-media-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-media-icons a {
+    margin-left: 10px; 
+}
+
+.social-media-icons img {
+    height: 30px; 
+}
+
+.credit {
+    color: #f5f5f5; 
+    font-size: smaller;
+}
