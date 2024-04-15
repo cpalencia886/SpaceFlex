@@ -78,9 +78,8 @@ body {
 }
 
 #no-office-message {
-    color: black; /* or any other color */
-    font-weight: bold; /* or any other styles you want */
-    /* Add any other styles as needed */
+    color: black;
+    font-weight: bold; 
 }
 
 
